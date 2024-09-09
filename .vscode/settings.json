@@ -1,0 +1,14 @@
+{
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/home/chunkymonkey/Coding/SFML_PROJECTS/SpaceAnimation",
+			"binaryPath": "/home/chunkymonkey/Coding/SFML_PROJECTS/SpaceAnimation/program",
+			"binaryArgs": []
+		}
+	],
+	"files.associations": {
+		"any": "cpp",
+		"fstream": "cpp",
+		"cstdint": "cpp"
+	}
+}

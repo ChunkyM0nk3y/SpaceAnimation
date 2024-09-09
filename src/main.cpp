@@ -1,36 +1,21 @@
 #include <SFML/Graphics.hpp>
-
-using namespace sf;
+#include "events.hpp"
+#include "configuration.hpp"
 
 int main()
 {
-	RenderWindow window(VideoMode(200, 200), "SFML Works!\n");
-	Clock deltaClock;
+	sf::RenderWindow window(sf::VideoMode(conf::window_size.x, conf::window_size.y), "Space");
+	window.setFramerateLimit(conf::max_framerate);
+	
+	sf::Clock deltaClock;
 
-	bool kresleni = true;
-
-    while (window.isOpen())
+    while(window.isOpen())
     {
-	    Time dt = deltaClock.restart();
-		if(kresleni)
-		{
-			window.clear();
-			//window.display();
-		}
-
-		Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Escape))
-			{
-				window.close();
-				return 0;
-			}
-			if(event.type == Event::Resized)
-			{
-
-			}
-		}
+		sf::Time dt = deltaClock.restart();
+		processEvents(window);
+		
+		window.clear();
+		window.display();
     }
 
     return 0;
